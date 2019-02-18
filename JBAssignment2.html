@@ -1,0 +1,195 @@
+<html>
+<meta name = "viewport" content="width=device-width, intial-scale=1.0">
+<link rel="stylesheet" href="Assignment2.css">
+<script type = "text/javascript">
+function submitValidate()
+{
+	//function not working
+	var message = "";
+	if (document.registration.nameF.value == "")
+	{
+		message += "First Name is required.";
+		document.registration.nameF.focus ();
+	}
+    if (document.registration.nameL.value == "")
+	{
+		message += "Last Name is required.";
+	}
+	if (message != "")
+	{
+		alert(message);
+	}
+	else
+	{
+	  document.write("Well done");
+	}
+}
+function checkpass()
+{
+	var pass1 = document.getElementById("passid").value;
+	var pass2 = document.getElementById("confirmPass").value;
+	if (pass1 != pass2)
+	{
+		alert("Passwords do not match!");
+	}
+}
+function postalcheck()
+{
+	var temp = document.getElementById("Jid").value;
+	document.getElementById("Jid").value = temp.toUpperCase();
+}
+function trimspace()
+{
+	var a = document.getElementById("nameF").value;
+	document.getElementById("nameF").value = a.trim();
+	var b = document.getElementById("nameM").value;
+	document.getElementById("nameM").value = b.trim();
+	var c = document.getElementById("nameL").value;
+	document.getElementById("nameL").value = c.trim();
+	var d = document.getElementById("nameN").value;
+	document.getElementById("nameN").value = d.trim();
+	var e = document.getElementById("usrname").value;
+	document.getElementById("usrname").value = e.trim();
+	var f = document.getElementById("passid").value;
+	document.getElementById("passid").value = f.trim();
+	var g = document.getElementById("confirmPass").value;
+	document.getElementById("confirmPass").value = g.trim();
+	var h = document.getElementById("Address").value;
+	document.getElementById("Address").value = h.trim();
+	var i = document.getElementById("City").value;
+	document.getElementById("City").value = i.trim();
+	var j = document.getElementById("Pid").value;
+	document.getElementById("Pid").value = j.trim();
+	var k = document.getElementById("mail").value;
+	document.getElementById("mail").value = k.trim();
+}
+function Capitalize()
+{
+	var a = document.getElementById("nameF").value;
+	document.getElementById("nameF").value = a.charAt(0).toUpperCase() + a.slice(1);
+	var b = document.getElementById("nameM").value;
+	document.getElementById("nameM").value = b.charAt(0).toUpperCase() + b.slice(1);
+	var c = document.getElementById("nameL").value;
+	document.getElementById("nameL").value = c.charAt(0).toUpperCase() + c.slice(1);
+	var d = document.getElementById("nameN").value;
+	document.getElementById("nameN").value = d.charAt(0).toUpperCase() + d.slice(1);
+	var e = document.getElementById("usrname").value;
+	document.getElementById("usrname").value = e.charAt(0).toUpperCase() + e.slice(1);
+	var f = document.getElementById("passid").value;
+	document.getElementById("passid").value = f.charAt(0).toUpperCase() + f.slice(1);
+	var g = document.getElementById("confirmPass").value;
+	document.getElementById("confirmPass").value = g.charAt(0).toUpperCase() + g.slice(1);
+	var h = document.getElementById("Address").value;
+	document.getElementById("Address").value = h.charAt(0).toUpperCase() + h.slice(1);
+	var i = document.getElementById("City").value;
+	document.getElementById("City").value = i.charAt(0).toUpperCase() + i.slice(1);
+	var j = document.getElementById("Pid").value;
+	document.getElementById("Pid").value = j.charAt(0).toUpperCase() + j.slice(1);
+	var k = document.getElementById("mail").value;
+	document.getElementById("mail").value = k.charAt(0).toUpperCase() + k.slice(1);
+}
+</script>
+</head>
+<body>
+<form name="JBform" action="submissionPage.html" method="post" enctype="text-plain">
+<h1>Assignment 2</h1>
+<aside>
+<p> * or asterisks next to fields mean they are required to fill.</p>
+</aside>
+<fieldset>
+<legend>Name</legend>
+First name*: <input type="text" id="nameF" name="Fname" onblur="trimspace(); Capitalize()" required>
+<br>
+<br>
+Middle name: <input type="text" id="nameM" name="Mname" onblur="trimspace(); Capitalize()">
+<br>
+<br>
+Last name*: <input type="text" id="nameL" name="Lname" onblur="trimspace(); Capitalize()" required>
+<br>
+<br>
+Nickname: <input type="text" id="nameN" name="Nname" onblur="trimspace(); Capitalize()">
+</fieldset>
+<br>
+<fieldset>
+<legend>User Info</legend>
+User name*: <input type="text" id="usrname" name="username" onblur="trimspace(); Capitalize()" required>
+<br>
+<br>
+Password(3-15 characters)*: <input type="password" name="field_name" id="passid" minlength="3" maxlength="15" onblur="trimspace(); Capitalize()" required>
+<br>
+<br>
+Confirm Password: <input type="password" name="field_name" id="confirmPass" minlength="3" maxlength="15" onblur="checkpass(); trimspace(); Capitalize()">
+</fieldset>
+<br>
+<fieldset>
+<legend>Personal Info</legend>
+Address*: <input type="text" id="Address" name="address" onblur="trimspace(); Capitalize()" required>
+<br>
+<br>
+City*(min. length 3 characters): <input type="text" id="City" name="city" onblur="trimspace(); Capitalize()" minlength="3" required>
+<br>
+<br>
+Postal Code*: <input type="text" name="Pcode" id="Pid" onblur="postalcheck(); trimspace(); capitalize()" required>
+<br>
+<br>
+Email Address* (someone@example.ca): <input type="email" id="mail" name="Email" required>
+<br>
+<br>
+Province: <select>
+<option value="nothing">Select An Option</option>
+<option value="Ontario">Ontario</option>
+<option value="Manitoba">Manitoba</option>
+<option value="Saskatchewan">Saskatchewan</option>
+<option value="Alberta">Alberta</option>
+<option value="BritishColumbia">British Columbia</option>
+<option value="Quebec">Quebec</option>
+<option value="NewfoundlandAndLabrador">Newfoundland and Labrador</option>
+<option value="NewBrunswick">New Brunswick</option>
+<option value="PEI">Prince Edward Island</option>
+<option value="NovaScotia">Nova Scotia</option>
+<option value="Yukon">Yukon</option>
+<option value="NWterritories">Northwest Territories</option>
+<option value="Nunavut">Nunavut</option>
+</select>
+</fieldset>
+<br>
+<fieldset>
+<legend>Age and gender:</legend>
+<p>How old are you?</p>
+<input type="radio" name="years" value="10to20"> 10 - 20 years
+<br>
+<input type="radio" name="years" value="21to40"> 21 - 40 years
+<br>
+<input type="radio" name="years" value="41to50"> 41 - 50 years
+<br>
+<input type="radio" name="years" value="51plus"> 51+ years
+<br>
+<p>Now please enter your gender:</p>
+<input type="radio" name="gender" value="Male"> Male
+<br>
+<input type="radio" name="gender" value="Female"> Female
+<br>
+<input type="radio" name="gender" value="Other"> Other
+</fieldset>
+<br>
+<fieldset>
+<legend>Random info</legend>
+<p> Favourite colour(s): </p>
+<input type="checkbox" name="colorR" value="red">Red
+<br>
+<input type="checkbox" name="colorBlue" value="blue">Blue
+<br>
+<input type="checkbox" name="colorY" value="yellow">Yellow
+<br>
+<input type="checkbox" name="colorG" value="green">Green
+<br>
+<input type="checkbox" name="colorW" value="white">White
+<br>
+<input type="checkbox" name="colorBla" value="black">Black
+<br>
+</fieldset>
+<button type="reset" value="reset">Reset all fields</button>
+<button type="submit" value="submit" onclick="submitValidate()">Submit Your Form!</button>
+</form>
+</body>
+</html>
